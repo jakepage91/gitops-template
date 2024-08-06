@@ -1,6 +1,6 @@
-# gitops-template
+# glasskube-argocd-starter
 
-Use this repository as a template to get started with ArgoCD & Glasskube in minutes instead of hours.
+Use this repository as a template to get started with the ArgoCD & Glasskube in seconds instead of hours.
 
 ## Getting Started
 
@@ -11,7 +11,7 @@ Use this repository as a template to get started with ArgoCD & Glasskube in minu
 The easiest would be creating a new [Minikube](https://minikube.sigs.k8s.io/docs/start/) cluster with:
 
 ```shell
-minikube start -p gitops
+minikube start -p glasskube
 ````
 Glasskube should not yet be bootstrapped in that cluster
 
@@ -35,9 +35,9 @@ Create a GitHub repository based on this starter template.
 Replace the default value of `repoURL` to your repository url.
 
 - Line 12 in: [`bootstrap/glasskube-application.yaml`](bootstrap/glasskube-application.yaml#L12)
-- Lines 11, 16 and 26 in: [`bootstrap/glasskube/applicationset.yaml`](bootstrap/glasskube/applicationset.yaml#L11-L26)
+- Line 11 and 21 in: [`bootstrap/glasskube/applicationset.yaml`](bootstrap/glasskube/applicationset.yaml#L11-L21)
 
-#### 3. Bootstrap ArgoCD and Glasskube for your Kubernetes cluster
+#### 3. Bootstrap ArgoCD and Glasskube for your Kubernetes cluster (blocked by: [#1050](https://github.com/glasskube/glasskube/pull/1050))
 
 Make sure you are connected to the right cluster and execute:
 
@@ -129,6 +129,7 @@ glasskube bootstrap --dry-run -o yaml --force > bootstrap/glasskube/glasskube.ya
 to update the Glasskube manifests in your git repo. After reviewing and merging those changes the update will be picked up
 by ArgoCD. The `--force` flag is necessary for the command to continue manifest validation, even though failures occur. 
 
+<<<<<<< HEAD
 ### Working with Apps
 
 This template also contains a demo application: a bookmark manager called [shiori](https://github.com/go-shiori/shiori).
@@ -163,12 +164,13 @@ into the first textfield, and pressing "Load". Use the "Prometheus" data source 
 Of course monitoring your experimental minikube cluster is a bit of an overkill, but this is simply to demonstrate how
 these kind of cluster administration tasks can be integrated into this gitops stack. 
 
+=======
+>>>>>>> da29316 (Initial commit)
 ## Repository Structure
 
 Initially, this repository will come with
 * a `bootstrap` directory containing the initial/parent Argo `Application`, and the necessary Glasskube manifests
 * a `packages` directory containing the `argo-cd` cluster package. 
-* an `apps` directory containing your applications. 
 * the renovate configuration in `renovate.json`. 
 
 Glasskube custom resources will only be picked up by Argo when being put inside the `packages` directory. Please do not
@@ -201,8 +203,7 @@ user experience better, see [glasskube/glasskube#430](https://github.com/glassku
 ## Summary
 
 With this template repository and guide we show how Glasskube can easily be set up in a ArgoCD powered Gitops environment, 
-and how efficient package management is possible with this stack. Additionally we install a web application to show how
-custom applications can make use of the Gitops setup and Glasskube packages.
+and how efficient package management is possible with this stack.
 
 This is still in early stages and therefore has some minor shortcomings, but we will continue to improve GitOps support. 
 
