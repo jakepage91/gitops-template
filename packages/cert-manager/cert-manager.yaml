@@ -1,0 +1,11 @@
+apiVersion: packages.glasskube.dev/v1alpha1
+kind: ClusterPackage
+metadata:
+  creationTimestamp: null
+  name: cert-manager
+spec:
+  packageInfo:
+    name: cert-manager
+    repositoryName: glasskube
+    version: v1.15.2+1
+
